@@ -22,3 +22,16 @@ To get started with the backend development, follow these steps:
     ```bash
     npm install
     ```
+
+
+    4. Set up the MongoDB database.
+    - Start MongoDB service.
+    - Create a database and collections as per requirements.
+    - Update the MongoDB connection URI in `config.js` if necessary.
+5. Run the development server.
+    ```bash
+    npm start
+    ```
+
+## Folder Structure
+
