@@ -12,3 +12,13 @@ This project contains the backend code for our application built with Node.js, E
 - **Mongoose**: MongoDB object modeling for Node.js.
 - **npm**: Package manager for Node.js.
 
+## Getting Started
+
+To get started with the backend development, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Install Node.js and MongoDB.
+3. Install dependencies using npm.
+    ```bash
+    npm install
+    ```
