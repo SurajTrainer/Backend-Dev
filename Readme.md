@@ -33,15 +33,4 @@ To get started with the backend development, follow these steps:
     npm start
     ```
 
-## Folder Structure
 
-
-├── controllers # Route controllers
-├── models # Database models
-├── routes # Route definitions
-├── config.js # Configuration settings
-├── middleware # Middleware functions
-├── utils # Utility functions
-├── public # Public files (if any)
-├── tests # Unit and integration tests
-└── README.md
