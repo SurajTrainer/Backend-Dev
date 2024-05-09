@@ -32,7 +32,8 @@ import useRouter from './routes/user.routers.js';
 
 
 // routes declaration
-app.use("/api/v1/user", useRouter)
+app.use("/api/user", useRouter)
+
 
 
 
