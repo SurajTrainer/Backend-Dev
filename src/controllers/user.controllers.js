@@ -6,6 +6,19 @@ import uploadOnCloudinary from "../utils/claudinary.js";
 import ApiResponse from "../utils/ApiResponse.js";
 
 
+const generateAccessAndRefreshToken = async(userId) => {
+    try {
+        const user = await User.findById(userId)
+        const accessToken = user.generateAccessToken()
+        const refreshToken = user.generateRefreshToken()
+
+        user.refreshToken = refreshToken()
+          user.save({validateBeforeSave : false})
+    } catch (error) {
+        throw new ApiError(500 , 'Access Token and Refresh are not available')
+    }
+}
+
 const registerUser = asyncHandler( async (req, res) => {
        
         // get user details from frontend
@@ -79,6 +92,33 @@ const registerUser = asyncHandler( async (req, res) => {
         return res.status(201).json(
             new ApiResponse(200 , createdUser , " User Registration successfully")
         )
+})
+
+
+export const loginUser = asyncHandler( async (req, res) => {
+    //    req.body => data
+    // username or email
+    // find the user
+    // password check
+    // access and refresh token
+    // send cookie
+
+    const {email , username , password} = req.body
+
+    if (!username || !email) {
+        throw new ApiError(400 , "username or email is required")
+    }
+    const user = await User.findOne({
+        $or : [{username}, {email}]
+    })
+    if (!user) {
+        throw new ApiError(404 , "user not exists")
+    }
+
+    const ispasswordValid = await user.isPasswordCorrect(password)
+    if (!ispasswordValid) {
+        throw new ApiError(401 , "password is not valid")
+    }
 })
 
 
