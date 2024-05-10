@@ -101,7 +101,7 @@ export const loginUser = asyncHandler( async (req, res) => {
     // find the user
     // password check
     // access and refresh token
-    // send cookie
+    // send cookies
 
     const {email , username , password} = req.body
 
