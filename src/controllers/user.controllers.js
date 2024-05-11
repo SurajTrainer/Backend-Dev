@@ -14,6 +14,9 @@ const generateAccessAndRefreshToken = async(userId) => {
 
         user.refreshToken = refreshToken()
           user.save({validateBeforeSave : false})
+
+          return {accessToken , refreshToken} 
+
     } catch (error) {
         throw new ApiError(500 , 'Access Token and Refresh are not available')
     }
